@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FishEye est un site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux !"
+    />
+
+    <title>Fisheye - photographe </title>
+    
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/356720bd71.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Styles -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/lightbox.css" rel="stylesheet" type="text/css" />
+    <link href="css/contactForm.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page__wrapper">
+      <header class="medias__header">
+        <a href="index.html"><img src="assets/images/logo.png" alt="Fisheye Page d'accueil" class="logo" /></a>
+      </header>
+      <main class="main">
+        <div class="photograph__header">
+          <div class="photograph__header__infos"></div>
+          <button
+            type="button"
+            class="button contactButton"
+            aria-haspopup="dialog"
+            aria-controls="dialog">
+              Contactez-moi
+          </button>
+          <div class="photograph__header__portrait"></div>
+        </div>
+        <div class="photograph__medias">
+          <div class="medias__sorting">
+            <label id="orderBy">Trier par :
+              <select    
+                name="sorting__list"
+                id="sorting__list"
+                aria-labelledby="orderBy sorting__list"
+              >     
+                <option value="popularity" selected>Popularité</option>
+                <option value="date">Date</option>
+                <option value="title">Titre</option>
+              </select>
+            </label>
+          </div>
+          <div class="medias__section">
+          </div>
+          <div class="medias__pageLikes">
+            <div class="media__pageLikes__box">
+              <div class="pageLikes">
+                <div class="totalLikes"></div>
+                <i class="heart-icon-filled fas fa-heart" ></i>
+                
+              </div>
+              <div class="pricePerDay"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="confirmModal">
+        <div class="confirmModal__box">
+          <button
+            type="button"
+            class="closeConfirmModal"
+            aria-label="Fermer"
+            tabindex="0">
+          </button>
+        </div>
+      </div>
+      <div
+      id="dialog"
+      class="contactModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle1 modalTitle2"
+      tabindex="-1"
+      aria-hidden="true">
+        <div class="contactModal__box">
+          <header class="contactModal__header">
+            <h1 class="contactModal__header__title" id="modalTitle1">Contactez-moi</h1>
+            <h2 id="modalTitle2">Mimi Keel</h2>
+            <button
+              type="button"
+              class="close"
+              aria-label="Fermer le formulaire de contact"
+              data-close="dialog"
+              tabindex="0">
+          </button>
+          </header>
+          <div class="contactModal__body">
+            <form
+              name="contact"
+              method="get"
+              data-form novalidate  
+            >
+              <div
+                class="formData"
+                data-formData
+                data-error
+                data-error-visible="false"
+              >
+                <label for="first">Prénom</label>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="first"
+                  name="first"
+                  data-minlength="2"
+                  data-required
+                  data-validate
+                  
+                />
+              </div>
+              <div
+                class="formData"
+                data-formData
+                data-error
+                data-error-visible="false"
+              >
+                <label for="last">Nom</label>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"
+                  data-minlength="2"
+                  data-required
+                  data-validate
+                />
+              </div>
+              <div
+                class="formData"
+                data-formData
+                data-error
+                data-error-visible="false"
+              >
+                <label for="email">Email</label>
+                <input
+                  class="text-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  data-email
+                  data-required
+                  data-validate
+                />
+              </div>
+              <div
+                class="formData"
+                data-formData
+                data-error
+                data-error-visible="false"
+              >
+                <label for="message">Votre message</label>
+                <textarea
+                  class="text-control textarea"
+                  id="message"
+                  name="message"
+                  rows="10"
+                  cols="50"
+                  data-minlength="20"
+                  data-maxlength="500"
+                  wrap="hard"
+                  data-message
+                  data-required
+                  data-validate
+                ></textarea>
+              </div>
+              <input
+                class="submitButton"
+                type="submit"
+                value="Envoyer"
+                aria-label="Envoyer"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+      <script src="scripts/utils/contactForm.js"></script>
+      
+      <!-- pages -->
+      <script type="module" src="scripts/pages/photographer.js"></script>
+    
+  </body>
+</html>

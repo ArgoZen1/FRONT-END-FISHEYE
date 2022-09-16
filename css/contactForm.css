@@ -1,0 +1,266 @@
+:root {
+  --modal-duration: .2s;
+}
+
+/* ====================== */
+/* ===== CONTACT FORM ===== */
+/* ====================== */
+
+.contactModal {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: var(--color-modal-bg);
+  -webkit-overflow-scrolling: touch;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  overflow-y: scroll;
+}
+
+.contactModal__box {
+  margin: 5% auto;
+  padding-block: 6px;
+  width: 100%;
+  max-width: 500px;
+  background: var(--color-secondary);
+  border-radius: 5px;
+  position: relative;
+  color: var(--color-black);
+}
+
+.contactModal[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .contactModal {
+    max-width: 460px;
+    padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .contactModal {
+    max-width: 100%;
+    padding-top: 0;
+    margin: 20% auto;
+  }
+}
+
+.contactModal__header {
+  position: relative;
+  padding: 0 6%;
+}
+
+#modalTitle1 {
+  margin-block-start: 12px;
+  color: var(--color-black);
+  margin-right: 0;
+}
+
+#modalTitle1, #modalTitle2 {
+  font-weight: normal;
+  font-size: 2.7rem;
+}
+
+#modalTitle2 {
+  margin-block-start: 0;
+}
+
+.contactModal__body {
+  padding: 15px 6%;
+  margin: 8px auto;
+}
+
+/* confirmation modal after form validation */
+.modal-confirm {
+  min-height: min(700px, 60vh);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  display: grid;
+  align-items: end;
+}
+
+/* Modal form content */
+.contactModal label {
+  font-family: var(--font-default);
+  color: var(--color-modal-label);
+  font-size: 1.7rem;
+  font-weight: normal;
+  display: inline-block;
+}
+
+input {
+  padding: 8px;
+  border: 0.8px solid var(--color-input-border);
+}
+
+.text-control {
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 20px;
+  height: 50px;
+}
+
+.text-control.textarea {
+  resize: none;
+  height: 130px;
+}
+
+/* messages d'erreur */
+
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.7rem;
+  color: var(--color-error);
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  line-height: 0.9;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
+
+.formData[data-error-visible="true"] .text-control {
+  border: 2px solid var(--color-error);
+}
+
+/* ==== Croix pour fermer le modal ==== */
+
+.close, .closeConfirmModal {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 6%;
+  top: 12px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(1.2);
+  
+}
+
+.close:before,
+.close:after,
+.closeConfirmModal:before,
+.closeConfirmModal:after {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  content: " ";
+  height: 32px;
+  width: 3px;
+  background-color: var(--color-white);
+}
+
+.close:before,
+.closeConfirmModal:before {
+  transform: rotate(45deg);
+}
+
+.close:after,
+.closeConfirmModal:after {
+  transform: rotate(-45deg);
+}
+
+/* ==== Button ==== */
+
+.submitButton {
+  background: var(--color-primary);
+  padding: 16px 36px;
+  color: var(--color-white);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: block;
+  margin-top: 0.7rem;
+  border: 0;
+}
+
+.submitButton:hover {
+  background: var(--color-primary-btn-hover);
+}
+
+.confirmModal {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: var(--color-modal-bg);
+  -webkit-overflow-scrolling: touch;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  overflow-y: scroll;
+}
+
+.confirmModal__box {
+  margin: 5% auto;
+  padding-block: 6px;
+  width: 100%;
+  height: 600px;
+  max-width: 500px;
+  background: var(--color-secondary);
+  border-radius: 5px;
+  position: relative;
+  color: var(--color-black);
+}
+
+.confirmModal__body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.confirmModal__body p {
+  font-size: 2rem;
+  margin-block-start: 48px;
+}
+
+.btn-close-modal {
+  background: var(--color-primary);
+  padding: 16px 66px;
+  color: var(--color-white);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-inline: auto;
+  border: 0;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .text-control {
+    height: 48px;
+  }
+}

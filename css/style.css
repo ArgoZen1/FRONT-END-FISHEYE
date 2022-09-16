@@ -1,0 +1,198 @@
+@import url("photographer.css");
+
+/* @font-face
+{
+    font-family: 'HeydingsControlsRegular';
+    src: url('./../assets/fonts/heydings_controls.eot'),
+         url('./../assets/fonts/heydings_controls.eot?#') format('embedded-opentype'),
+         url('./../assets/fonts/heydings_controls.woff') format('woff'),
+         url('./../assets/fonts/heydings_controls.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+} */
+
+:root {
+    --font-default: "DM Sans", sans-serif;
+
+    --color-primary: hsl(0, 67%, 34%);
+    --color-primary-btn-hover: hsl(0, 67%, 45%);
+    --color-secondary: #D3573C;
+    --color-tertiary: #525252;
+    --color-tertiary-bg: hsl(0, 0%, 98%);
+    --color-gray: #757575;
+    
+    --color-gray-tags: hsl(0, 0%, 85%);
+    --color-gray-dark: hsl(0, 0%, 30%);
+    --color-white: hsl(100, 100%, 100%);
+    --color-black: hsl(0, 0%, 0%);
+    --color-modal-bg: hsla(100, 100%, 100%, 0.4);
+    --color-modal-label: hsl(0, 3%, 19%);
+    
+    --font-size-base: 1em;
+    --margin-gap: 60px;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {  
+    * {
+      /* Des durées très courtes signifient que JavaScript qui repose sur des événements fonctionne toujours */
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: var(--font-size-base);
+  font-family: var(--font-default);
+}
+
+body {
+    max-width: 1300px;
+    margin: auto;
+}
+
+@media screen and (max-width: 1420px ) {
+    .page__wrapper {
+        padding-inline: var(--margin-gap);
+    }
+}
+
+a {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@supports selector(div:focus-visible) {
+    a:focus:not(:focus-visible),
+    button:focus:not(:focus-visible),
+    select:focus:not(:focus-visible),
+    i:focus:not(:focus-visible) {
+      outline: 0;
+    }
+    a:focus-visible {
+      outline: 3px dashed var(--color-secondary);
+      z-index: 3;
+    }
+
+    button:focus-visible,
+    select:focus-visible,
+    i:focus-visible {
+        outline: 3px solid var(--color-secondary);
+        z-index: 3; 
+    }
+  }
+
+header,  main {
+    max-width: 1300px;
+    margin-inline: auto;
+}
+
+.home__header, .medias__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.home__header a {
+    margin-left: 130px;
+}
+
+h1 {
+    color: var(--color-primary);
+    margin-right: 130px;
+}
+
+h2 {
+    margin-block-start: 24px;
+}
+
+.photographer__section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--margin-gap);
+    margin-top: 100px;
+}
+
+.photographer__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.link__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.photographer__card__content__wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.photographer__section .cardImg__wrapper {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.photographer__section .cardImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.photographer__section .cardHeading {
+    color: var(--color-secondary);
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.photographer__section .cardText {
+    text-align: center;
+}
+
+.photographer__section .cardText p {
+    margin-block: 8px;
+    font-size: 0.8rem;
+}
+
+.photographer__section .cardText .tagline, .photographer__section .cardText .price {
+    font-size: 0.7rem;
+}
+
+.photographer__section .cardText .city {
+    color: var(--color-primary);
+}
+
+.photographer__section .cardText .price {
+    color: var(--color-gray);
+}
+
